@@ -1,0 +1,21 @@
+{
+  "name": "my-notes-app",
+  "version": "1.0.0",
+  "description": "A simple notes application for students to add, edit, and delete notes.",
+  "main": "app.js",
+  "scripts": {
+    "start": "live-server ."
+  },
+  "keywords": [
+    "notes",
+    "application",
+    "student",
+    "local-storage"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
