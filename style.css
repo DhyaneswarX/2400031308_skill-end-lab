@@ -1,130 +1,79 @@
 :root {
-  --bg-1: #ffecd2;
-  --bg-2: #fcb69f;
-  --accent: #6a11cb;
-  --accent-2: #2575fc;
-  --card-1: #fff7f0;
-  --card-2: #f0fdff;
-  --muted: #666;
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #6c757d;
+  --card: #ffffff;
+  --border: #e5e7eb;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
-  margin: 0;
-  padding: 40px 20px;
-  min-height: 100vh;
+[data-theme="dark"] {
+  --bg: #0f1115;
+  --fg: #e6edf3;
+  --muted: #9aa5b1;
+  --card: #161b22;
+  --border: #30363d;
 }
 
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-  border: 1px solid rgba(255,255,255,0.5);
+html, body {
+  background: var(--bg);
+  color: var(--fg);
 }
 
-h1 {
-  text-align: center;
-  color: var(--accent);
-  margin: 0 0 10px;
-  letter-spacing: 0.6px;
+.navbar {
+  border-bottom: 1px solid var(--border);
 }
 
-#note-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  resize: vertical;
-  min-height: 80px;
-  box-shadow: inset 0 1px 0 rgba(0,0,0,0.03);
+.card { background: var(--card); border-color: var(--border); }
+.form-control, .form-select { background: var(--bg); color: var(--fg); border-color: var(--border); }
+.list-group-item { background: var(--bg); color: var(--fg); border-color: var(--border); }
+
+.notes-list {
+  max-height: calc(100vh - 260px);
+  overflow: auto;
 }
 
-.add-button {
-  display: inline-block;
-  margin-top: 10px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+.note-item {
   cursor: pointer;
-  font-weight: 600;
-  transition: transform .07s ease;
-}
-
-.add-button:hover { transform: translateY(-2px); }
-
-#notes-list {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-/* colorful notes */
-.note {
-  padding: 12px;
-  border-radius: 10px;
-  border-left: 6px solid rgba(0,0,0,0.06);
-  background: linear-gradient(180deg, var(--card-1), var(--card-2));
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-.note:nth-child(odd) {
-  background: linear-gradient(180deg, #fff7fb, #f6f0ff);
-  border-left-color: #ff7bc1;
-}
-
-.note:nth-child(even) {
-  background: linear-gradient(180deg, #f6fff9, #f0fcff);
-  border-left-color: #00c2a8;
-}
-
-.note h2 {
-  margin: 0 0 8px;
-  color: var(--accent);
-  font-size: 16px;
-}
-
-.note p {
-  margin: 0 0 10px;
-  color: var(--muted);
-  white-space: pre-wrap;
-}
-
-/* controls */
-.controls {
   display: flex;
-  gap: 8px;
-  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
 }
 
-button {
+.note-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+
+.note-title {
+  flex: 1;
+}
+
+.note-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  margin: 0 6px 6px 0;
+}
+
+.tag-pill button {
   border: none;
-  padding: 8px 10px;
-  border-radius: 8px;
-  color: #fff;
+  background: transparent;
+  color: var(--muted);
   cursor: pointer;
-  font-weight: 600;
 }
 
-.edit-button {
-  background: linear-gradient(90deg,#ff9a00,#ff6060);
+#noteContent {
+  min-height: 320px;
 }
 
-.delete-button {
-  background: linear-gradient(90deg,#6b6b6b,#333);
-}
-
-.edit-button:hover { opacity: 0.95; }
-.delete-button:hover { opacity: 0.95; }
-
-/* small screens */
-@media (max-width: 520px) {
-  .container { padding: 16px; }
-  .controls { justify-content: flex-start; gap: 6px; }
-}
+.d-none { display: none !important; }
